@@ -49,19 +49,19 @@ while true do
 	local e,p = os.pullEvent()
 	if e == "key" then
 		local key = p
-		if key == 17 or key == 200 then
+		if key == keys.w or key == keys.up then
 			if nOption > 1 then
 				nOption = nOption - 1
 				drawMenu()
 				drawFrontend()
 			end
-		elseif key == 31 or key == 208 then
+		elseif key == keys.s or key == keys.down then
 			if nOption < 4 then
 				nOption = nOption + 1
 				drawMenu()
 				drawFrontend()
 			end
-		elseif key == 28 then
+		elseif key == keys.enter then
 			break
 		end
 	end
