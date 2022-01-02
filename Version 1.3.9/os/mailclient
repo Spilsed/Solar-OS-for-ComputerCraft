@@ -262,9 +262,9 @@ function runInterface()
 			printHeader()
 			printTopMenu()
 			local e,key = os.pullEvent("key")
-			if key==200 and slc>1 then slc = slc-1
-			elseif key==208 and slc<6 then slc=slc+1
-			elseif key==28 then
+			if key==keys.up and slc>1 then slc = slc-1
+			elseif key==keys.down and slc<6 then slc=slc+1
+			elseif key==keys.enter then
 				if slc==1 then
 					state = states["COMPOSETEXT"].id
 					newmsg = ""
@@ -329,11 +329,11 @@ function runInterface()
 		elseif state==states["COMPOSEMENU"].id then
 			printComposeMenu()
 			local e, key = os.pullEvent("key")
-			if key==203 and slc>1 then 
+			if key==keys.left and slc>1 then 
 				slc=slc-1
-			elseif key==205 and slc<2 then 
+			elseif key==keys.right and slc<2 then 
 				slc=slc+1
-			elseif key==28 then
+			elseif key==keys.enter then
 				if slc==1 then
 					sendEmail()
 					state = states["CONFIRM"].id
@@ -347,11 +347,11 @@ function runInterface()
 			printStored()
 			printArchiveMenu()
 			local e, key = os.pullEvent("key")
-			if key==203 and slc>1 then
+			if key==keys.left and slc>1 then
 				slc=slc-1
-			elseif key==205 and slc<4 then
+			elseif key==keys.right and slc<4 then
 				slc=slc+1
-			elseif key==28 then
+			elseif key==keys.enter then
 				if slc==1 and emidx>1 then emidx=emidx-1
 				elseif slc==2 then state=states["TOP"].id
 				elseif slc==3 then
@@ -372,11 +372,11 @@ function runInterface()
 			printStored()
 			printUnreadMenu()
 			local e, key = os.pullEvent("key")
-			if key==203 and slc>1 then
+			if key==keys.left and slc>1 then
 				slc=slc-1
-			elseif key==205 and slc<2 then
+			elseif key==keys.right and slc<2 then
 				slc=slc+1
-			elseif key==28 then
+			elseif key==keys.enter then
 				if slc==1 then
 					table.insert(rmail, {
 						from = emlist[emidx].from,
@@ -395,7 +395,7 @@ function runInterface()
 		elseif state==states["CONFIRM"].id then
 			printConfirm()
 			local e, key = os.pullEvent("key")
-			if key==28 then
+			if key==keys.enter then
 				state = states["TOP"].id
 			end
 		end
