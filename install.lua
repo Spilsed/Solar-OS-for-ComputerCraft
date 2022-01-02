@@ -19,7 +19,7 @@ local silent = false
 
 local preset = {
 	-- The GitHub account name
-	user = "cdez-cactus-os",
+	user = "Spilsed",
 	-- The GitHub repository name
 	repo = "Solar-OS-for-ComputerCraft",
 	
